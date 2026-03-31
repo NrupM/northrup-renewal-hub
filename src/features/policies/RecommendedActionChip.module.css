@@ -1,0 +1,23 @@
+.chip {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.red {
+  background: color-mix(in srgb, var(--risk-critical) 12%, transparent);
+  color: var(--risk-critical);
+}
+
+.orange {
+  background: color-mix(in srgb, var(--risk-high) 12%, transparent);
+  color: var(--risk-high);
+}
+
+.yellow {
+  background: color-mix(in srgb, var(--risk-medium) 12%, transparent);
+  color: var(--risk-medium);
+}
