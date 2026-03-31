@@ -1,4 +1,4 @@
-import { useMemo, useRef, useCallback } from 'react'
+import { useMemo, useCallback } from 'react'
 import { List } from 'react-window'
 import type { RowComponentProps } from 'react-window'
 import { useStore, selectSetFilters } from '../../store'
@@ -33,10 +33,13 @@ function TableRow({
   )
 }
 
-export function PolicyTable() {
+interface PolicyTableProps {
+  triggerRef: React.RefObject<Map<string, HTMLTableRowElement | null>>
+}
+
+export function PolicyTable({ triggerRef }: PolicyTableProps) {
   const policies = useFilteredPolicies()
   const setFilters = useStore(selectSetFilters)
-  const triggerRef = useRef<Map<string, HTMLTableRowElement | null>>(new Map())
 
   const rowProps = useMemo<SharedRowProps>(
     () => ({ policies, triggerRef }),

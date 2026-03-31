@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useStore, selectInitializeIfEmpty } from '../../store'
 import { StatCards } from './StatCards'
 import { ExecWorkloadPanel } from './ExecWorkloadPanel'
@@ -10,6 +10,7 @@ import styles from './DashboardLayout.module.css'
 
 export function DashboardLayout() {
   const initializeIfEmpty = useStore(selectInitializeIfEmpty)
+  const triggerRef = useRef<Map<string, HTMLTableRowElement | null>>(new Map())
 
   useEffect(() => {
     initializeIfEmpty()
@@ -33,11 +34,11 @@ export function DashboardLayout() {
 
         <section className={styles.tableSection}>
           <FilterBar />
-          <PolicyTable />
+          <PolicyTable triggerRef={triggerRef} />
         </section>
       </main>
 
-      <PolicyDrawer />
+      <PolicyDrawer triggerRefs={triggerRef} />
     </div>
   )
 }
