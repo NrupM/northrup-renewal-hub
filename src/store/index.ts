@@ -91,6 +91,11 @@ export const useStore = create<State>()(
     }),
     {
       name: 'northrup-renewal-hub',
+      onRehydrateStorage: () => (_state, error) => {
+        if (error) {
+          console.warn('localStorage rehydration failed, falling back to seed data:', error)
+        }
+      },
     }
   )
 )

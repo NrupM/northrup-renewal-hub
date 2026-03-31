@@ -6,6 +6,7 @@ import { TodaysFocus } from './TodaysFocus'
 import { FilterBar } from './FilterBar'
 import { PolicyTable } from '../policies/PolicyTable'
 import { PolicyDrawer } from '../policies/PolicyDrawer'
+import { ErrorBoundary } from '../../components/ErrorBoundary'
 import styles from './DashboardLayout.module.css'
 
 export function DashboardLayout() {
@@ -22,23 +23,27 @@ export function DashboardLayout() {
         <h1 className={styles.title}>Renewal Hub</h1>
       </header>
 
-      <main className={styles.main}>
-        <section className={styles.topRow}>
-          <StatCards />
-          <ExecWorkloadPanel />
-        </section>
+      <ErrorBoundary>
+        <main className={styles.main}>
+          <section className={styles.topRow}>
+            <StatCards />
+            <ExecWorkloadPanel />
+          </section>
 
-        <section className={styles.focus}>
-          <TodaysFocus />
-        </section>
+          <section className={styles.focus}>
+            <TodaysFocus />
+          </section>
 
-        <section className={styles.tableSection}>
-          <FilterBar />
-          <PolicyTable triggerRef={triggerRef} />
-        </section>
-      </main>
+          <section className={styles.tableSection}>
+            <FilterBar />
+            <PolicyTable triggerRef={triggerRef} />
+          </section>
+        </main>
+      </ErrorBoundary>
 
-      <PolicyDrawer triggerRefs={triggerRef} />
+      <ErrorBoundary>
+        <PolicyDrawer triggerRefs={triggerRef} />
+      </ErrorBoundary>
     </div>
   )
 }
