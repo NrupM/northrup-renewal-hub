@@ -1,0 +1,24 @@
+/* src/styles/tokens.css */
+:root {
+  --risk-critical: #dc2626;
+  --risk-high: #ea580c;
+  --risk-medium: #ca8a04;
+  --risk-low: #16a34a;
+
+  --surface: #ffffff;
+  --surface-subtle: #f9fafb;
+  --surface-hover: #f3f4f6;
+  --border: #e5e7eb;
+
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
