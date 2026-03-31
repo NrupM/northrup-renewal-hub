@@ -1,0 +1,67 @@
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+}
+
+.heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 0 var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.row:not(:last-child) .td,
+.row:not(:last-child) .tdCount,
+.row:not(:last-child) .tdBar {
+  border-bottom: 1px solid var(--border);
+}
+
+.td,
+.tdCount,
+.tdBar {
+  padding: var(--spacing-sm) 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.tdCount {
+  width: 48px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tdBar {
+  width: 120px;
+}
+
+.barTrack {
+  background: var(--surface-subtle);
+  border-radius: var(--radius-sm);
+  height: 8px;
+  overflow: hidden;
+}
+
+.barFill {
+  background: var(--risk-high);
+  height: 100%;
+  border-radius: var(--radius-sm);
+  transition: width 0.3s ease;
+}

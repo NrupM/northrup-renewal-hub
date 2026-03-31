@@ -1,0 +1,30 @@
+.bar {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.select,
+.search {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  height: 36px;
+  cursor: pointer;
+}
+
+.select:focus,
+.search:focus {
+  outline: 2px solid var(--risk-high);
+  outline-offset: 1px;
+}
+
+.search {
+  flex: 1;
+  min-width: 180px;
+  cursor: text;
+}
