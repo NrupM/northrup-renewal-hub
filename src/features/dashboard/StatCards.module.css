@@ -5,23 +5,52 @@
 }
 
 .card {
-  background: var(--surface);
+  background: var(--surface-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(1, 186, 239, 0.4), transparent);
+}
+
+.card:hover {
+  border-color: var(--border-bright);
+  box-shadow: var(--glow-cyan);
 }
 
 .value {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: var(--cyan);
   line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.value.danger {
+  color: var(--crimson);
+  text-shadow: var(--glow-crimson);
 }
 
 .label {
-  font-size: 0.875rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }

@@ -46,15 +46,15 @@ export function StatCards() {
     <div className={styles.grid}>
       <div className={styles.card}>
         <span className={styles.value}>{stats.renewalsDue30}</span>
-        <span className={styles.label}>Renewals due in ≤30 days</span>
+        <span className={styles.label}>Renewals due ≤30 days</span>
       </div>
       <div className={styles.card}>
-        <span className={styles.value} style={{ color: 'var(--risk-critical)' }}>{stats.criticalCount}</span>
+        <span className={`${styles.value} ${styles.danger}`}>{stats.criticalCount}</span>
         <span className={styles.label}>Critical risk policies</span>
       </div>
       <div className={styles.card}>
         <span className={styles.value}>{stats.pctContacted}%</span>
-        <span className={styles.label}>Contacted in last 30 days</span>
+        <span className={styles.label}>Contacted last 30 days</span>
       </div>
     </div>
   )

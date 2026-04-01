@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useStore, selectInitializeIfEmpty } from '../../store'
+import { Sidebar } from './Sidebar'
 import { StatCards } from './StatCards'
 import { ExecWorkloadPanel } from './ExecWorkloadPanel'
 import { TodaysFocus } from './TodaysFocus'
@@ -17,33 +18,44 @@ export function DashboardLayout() {
     initializeIfEmpty()
   }, [initializeIfEmpty])
 
+  const now = new Date()
+  const dateStr = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })
+
   return (
-    <div className={styles.layout}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>Renewal Hub</h1>
-      </header>
+    <div className={styles.shell}>
+      <Sidebar />
 
-      <ErrorBoundary>
-        <main className={styles.main}>
-          <section className={styles.topRow}>
-            <StatCards />
-            <ExecWorkloadPanel />
-          </section>
+      <div className={styles.content}>
+        <header className={styles.header}>
+          <div className={styles.headerLeft}>
+            <h1 className={styles.title}>Policy Renewals</h1>
+            <span className={styles.subtitle}>Commercial Insurance Portfolio</span>
+          </div>
+          <div className={styles.headerRight}>{dateStr}</div>
+        </header>
 
-          <section className={styles.focus}>
-            <TodaysFocus />
-          </section>
+        <ErrorBoundary>
+          <main className={styles.main}>
+            <section className={styles.topRow}>
+              <StatCards />
+              <ExecWorkloadPanel />
+            </section>
 
-          <section className={styles.tableSection}>
-            <FilterBar />
-            <PolicyTable triggerRef={triggerRef} />
-          </section>
-        </main>
-      </ErrorBoundary>
+            <section className={styles.focus}>
+              <TodaysFocus />
+            </section>
 
-      <ErrorBoundary>
-        <PolicyDrawer triggerRefs={triggerRef} />
-      </ErrorBoundary>
+            <section className={styles.tableSection}>
+              <FilterBar />
+              <PolicyTable triggerRef={triggerRef} />
+            </section>
+          </main>
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <PolicyDrawer triggerRefs={triggerRef} />
+        </ErrorBoundary>
+      </div>
     </div>
   )
 }

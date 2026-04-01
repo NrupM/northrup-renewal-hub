@@ -1,0 +1,216 @@
+<h2>How should the sidebar feel?</h2>
+<p class="subtitle">Same icon-nav structure, different visual tone. Pick the one that fits.</p>
+
+<div class="cards">
+
+  <!-- Option A: Dark sidebar, blue accent -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f9fafb;padding:0;font-family:system-ui,sans-serif;overflow:hidden;border-radius:6px;height:220px;display:flex;">
+      <!-- Sidebar -->
+      <div style="width:60px;background:#0f172a;display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:4px;flex-shrink:0;">
+        <div style="width:32px;height:32px;background:#3b82f6;border-radius:8px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:14px;height:14px;border:2px solid #fff;border-radius:3px;"></div>
+        </div>
+        <div style="width:36px;height:36px;background:#1e293b;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:14px;height:2px;background:#94a3b8;box-shadow:0 4px 0 #94a3b8, 0 -4px 0 #94a3b8;"></div>
+        </div>
+        <div style="width:36px;height:36px;background:#3b82f6;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:12px;height:12px;border:2px solid #fff;border-radius:2px;"></div>
+        </div>
+        <div style="width:36px;height:36px;background:#1e293b;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:12px;height:12px;border-radius:50%;border:2px solid #94a3b8;"></div>
+        </div>
+        <div style="flex:1;"></div>
+        <div style="width:28px;height:28px;border-radius:50%;background:#334155;"></div>
+      </div>
+      <!-- Main content -->
+      <div style="flex:1;padding:12px;overflow:hidden;background:#f8fafc;">
+        <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:10px;letter-spacing:-0.3px;">Renewal Hub</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:8px;">
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:700;color:#0f172a;">89</div>
+            <div style="font-size:9px;color:#94a3b8;margin-top:1px;">Due ≤ 30d</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:700;color:#dc2626;">98</div>
+            <div style="font-size:9px;color:#94a3b8;margin-top:1px;">Critical</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:700;color:#0f172a;">13%</div>
+            <div style="font-size:9px;color:#94a3b8;margin-top:1px;">Contacted</div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:6px 10px;display:flex;gap:6px;align-items:center;margin-bottom:7px;">
+          <span style="font-size:10px;color:#94a3b8;">🔍</span>
+          <span style="font-size:10px;color:#94a3b8;flex:1;">Search clients...</span>
+          <div style="border:1px solid #e2e8f0;border-radius:5px;padding:2px 7px;font-size:9px;color:#64748b;">Filters ▾</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+          <div style="display:grid;grid-template-columns:2fr 1fr 55px 65px;padding:5px 10px;background:#f8fafc;border-bottom:1px solid #e2e8f0;">
+            <span style="font-size:8px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:0.06em;">Client</span>
+            <span style="font-size:8px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:0.06em;">Carrier</span>
+            <span style="font-size:8px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:0.06em;">Days</span>
+            <span style="font-size:8px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:0.06em;">Risk</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 55px 65px;padding:6px 10px;border-bottom:1px solid #f1f5f9;">
+            <span style="font-size:9px;color:#0f172a;font-weight:500;">Columbia Sportswear</span>
+            <span style="font-size:9px;color:#64748b;">Philadelphia</span>
+            <span style="font-size:9px;color:#374151;">28d</span>
+            <span style="font-size:9px;font-weight:600;color:#dc2626;">Critical</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 55px 65px;padding:6px 10px;">
+            <span style="font-size:9px;color:#0f172a;font-weight:500;">Gresham Auto Center</span>
+            <span style="font-size:9px;color:#64748b;">Philadelphia</span>
+            <span style="font-size:9px;font-weight:700;color:#dc2626;">7d</span>
+            <span style="font-size:9px;font-weight:600;color:#dc2626;">Critical</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Dark navy sidebar, blue accent</h3>
+      <p>High contrast, very "enterprise SaaS." Active icon highlights in blue. Cool slate tones throughout.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Light sidebar, subtle -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f9fafb;padding:0;font-family:system-ui,sans-serif;overflow:hidden;border-radius:6px;height:220px;display:flex;">
+      <!-- Light sidebar -->
+      <div style="width:60px;background:#fff;border-right:1px solid #e5e7eb;display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:4px;flex-shrink:0;">
+        <div style="width:32px;height:32px;background:#111827;border-radius:8px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:14px;height:14px;border:2px solid #fff;border-radius:3px;"></div>
+        </div>
+        <div style="width:36px;height:36px;background:#f3f4f6;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:14px;height:2px;background:#9ca3af;box-shadow:0 4px 0 #9ca3af, 0 -4px 0 #9ca3af;"></div>
+        </div>
+        <div style="width:36px;height:36px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;border:1px solid #bfdbfe;">
+          <div style="width:12px;height:12px;border:2px solid #3b82f6;border-radius:2px;"></div>
+        </div>
+        <div style="width:36px;height:36px;background:#f3f4f6;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:12px;height:12px;border-radius:50%;border:2px solid #9ca3af;"></div>
+        </div>
+        <div style="flex:1;"></div>
+        <div style="width:28px;height:28px;border-radius:50%;background:#e5e7eb;"></div>
+      </div>
+      <!-- Main content same as A -->
+      <div style="flex:1;padding:12px;overflow:hidden;background:#f9fafb;">
+        <div style="font-size:12px;font-weight:700;color:#111827;margin-bottom:10px;">Renewal Hub</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:8px;">
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:700;color:#111827;">89</div>
+            <div style="font-size:9px;color:#9ca3af;margin-top:1px;">Due ≤ 30d</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:700;color:#dc2626;">98</div>
+            <div style="font-size:9px;color:#9ca3af;margin-top:1px;">Critical</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:700;color:#111827;">13%</div>
+            <div style="font-size:9px;color:#9ca3af;margin-top:1px;">Contacted</div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:6px 10px;display:flex;gap:6px;align-items:center;margin-bottom:7px;">
+          <span style="font-size:10px;color:#9ca3af;">🔍</span>
+          <span style="font-size:10px;color:#9ca3af;flex:1;">Search clients...</span>
+          <div style="border:1px solid #e5e7eb;border-radius:5px;padding:2px 7px;font-size:9px;color:#6b7280;">Filters ▾</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;">
+          <div style="display:grid;grid-template-columns:2fr 1fr 55px 65px;padding:5px 10px;background:#f9fafb;border-bottom:1px solid #e5e7eb;">
+            <span style="font-size:8px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.06em;">Client</span>
+            <span style="font-size:8px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.06em;">Carrier</span>
+            <span style="font-size:8px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.06em;">Days</span>
+            <span style="font-size:8px;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:0.06em;">Risk</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 55px 65px;padding:6px 10px;border-bottom:1px solid #f3f4f6;">
+            <span style="font-size:9px;color:#111827;font-weight:500;">Columbia Sportswear</span>
+            <span style="font-size:9px;color:#6b7280;">Philadelphia</span>
+            <span style="font-size:9px;color:#374151;">28d</span>
+            <span style="font-size:9px;font-weight:600;color:#dc2626;">Critical</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 55px 65px;padding:6px 10px;">
+            <span style="font-size:9px;color:#111827;font-weight:500;">Gresham Auto Center</span>
+            <span style="font-size:9px;color:#6b7280;">Philadelphia</span>
+            <span style="font-size:9px;font-weight:700;color:#dc2626;">7d</span>
+            <span style="font-size:9px;font-weight:600;color:#dc2626;">Critical</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Light sidebar, blue active state</h3>
+      <p>Sidebar blends with the page background. Active icon gets a subtle blue tint. Softer, less dominant.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Dark sidebar, no color accent -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f9fafb;padding:0;font-family:system-ui,sans-serif;overflow:hidden;border-radius:6px;height:220px;display:flex;">
+      <!-- Dark sidebar neutral -->
+      <div style="width:60px;background:#18181b;display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:4px;flex-shrink:0;">
+        <div style="width:32px;height:32px;background:#fff;border-radius:8px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:14px;height:14px;border:2px solid #18181b;border-radius:3px;"></div>
+        </div>
+        <div style="width:36px;height:36px;background:#27272a;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:14px;height:2px;background:#71717a;box-shadow:0 4px 0 #71717a, 0 -4px 0 #71717a;"></div>
+        </div>
+        <div style="width:36px;height:36px;background:#3f3f46;border-radius:8px;display:flex;align-items:center;justify-content:center;outline:1px solid #52525b;">
+          <div style="width:12px;height:12px;border:2px solid #fff;border-radius:2px;"></div>
+        </div>
+        <div style="width:36px;height:36px;background:#27272a;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:12px;height:12px;border-radius:50%;border:2px solid #71717a;"></div>
+        </div>
+        <div style="flex:1;"></div>
+        <div style="width:28px;height:28px;border-radius:50%;background:#3f3f46;"></div>
+      </div>
+      <!-- Main content -->
+      <div style="flex:1;padding:12px;overflow:hidden;background:#fafafa;">
+        <div style="font-size:12px;font-weight:700;color:#09090b;margin-bottom:10px;letter-spacing:-0.4px;">Renewal Hub</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:8px;">
+          <div style="background:#fff;border:1px solid #e4e4e7;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:700;color:#09090b;">89</div>
+            <div style="font-size:9px;color:#a1a1aa;margin-top:1px;">Due ≤ 30d</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e4e4e7;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:700;color:#dc2626;">98</div>
+            <div style="font-size:9px;color:#a1a1aa;margin-top:1px;">Critical</div>
+          </div>
+          <div style="background:#fff;border:1px solid #e4e4e7;border-radius:8px;padding:10px;">
+            <div style="font-size:18px;font-weight:700;color:#09090b;">13%</div>
+            <div style="font-size:9px;color:#a1a1aa;margin-top:1px;">Contacted</div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #e4e4e7;border-radius:8px;padding:6px 10px;display:flex;gap:6px;align-items:center;margin-bottom:7px;">
+          <span style="font-size:10px;color:#a1a1aa;">🔍</span>
+          <span style="font-size:10px;color:#a1a1aa;flex:1;">Search clients...</span>
+          <div style="border:1px solid #e4e4e7;border-radius:5px;padding:2px 7px;font-size:9px;color:#71717a;">Filters ▾</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e4e4e7;border-radius:8px;overflow:hidden;">
+          <div style="display:grid;grid-template-columns:2fr 1fr 55px 65px;padding:5px 10px;background:#fafafa;border-bottom:1px solid #e4e4e7;">
+            <span style="font-size:8px;font-weight:600;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.06em;">Client</span>
+            <span style="font-size:8px;font-weight:600;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.06em;">Carrier</span>
+            <span style="font-size:8px;font-weight:600;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.06em;">Days</span>
+            <span style="font-size:8px;font-weight:600;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.06em;">Risk</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 55px 65px;padding:6px 10px;border-bottom:1px solid #f4f4f5;">
+            <span style="font-size:9px;color:#09090b;font-weight:500;">Columbia Sportswear</span>
+            <span style="font-size:9px;color:#71717a;">Philadelphia</span>
+            <span style="font-size:9px;color:#3f3f46;">28d</span>
+            <span style="font-size:9px;font-weight:600;color:#dc2626;">Critical</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 55px 65px;padding:6px 10px;">
+            <span style="font-size:9px;color:#09090b;font-weight:500;">Gresham Auto Center</span>
+            <span style="font-size:9px;color:#71717a;">Philadelphia</span>
+            <span style="font-size:9px;font-weight:700;color:#dc2626;">7d</span>
+            <span style="font-size:9px;font-weight:600;color:#dc2626;">Critical</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Dark zinc sidebar, neutral active</h3>
+      <p>Very dark near-black sidebar, white logo mark, active state is just a lighter zinc. No color accent at all — very clean.</p>
+    </div>
+  </div>
+
+</div>
