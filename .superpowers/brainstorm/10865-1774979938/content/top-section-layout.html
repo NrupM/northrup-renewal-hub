@@ -1,0 +1,213 @@
+<h2>How should the top section be laid out?</h2>
+<p class="subtitle">With the sidebar taking ~60px, you have a wide content area. Pick how the stats, exec workload, and today's focus sit together.</p>
+
+<div class="cards">
+
+  <!-- Option A: Stats row + two panels side by side -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#16181d;padding:12px;font-family:system-ui,sans-serif;border-radius:6px;">
+      <!-- Stats row full width -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:8px;">
+        <div style="background:#1e2028;border:1px solid #2a2d38;border-radius:6px;padding:8px 10px;">
+          <div style="font-size:16px;font-weight:700;color:#f0f2f5;">89</div>
+          <div style="font-size:8px;color:#7c8394;">Due ≤ 30d</div>
+        </div>
+        <div style="background:#1e2028;border:1px solid #3d1f1a;border-left:2px solid #ef4444;border-radius:6px;padding:8px 10px;">
+          <div style="font-size:16px;font-weight:700;color:#ef4444;">98</div>
+          <div style="font-size:8px;color:#7c8394;">Critical</div>
+        </div>
+        <div style="background:#1e2028;border:1px solid #2a2d38;border-radius:6px;padding:8px 10px;">
+          <div style="font-size:16px;font-weight:700;color:#f0f2f5;">13%</div>
+          <div style="font-size:8px;color:#7c8394;">Contacted 30d</div>
+        </div>
+      </div>
+      <!-- Two panels side by side -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;">
+        <!-- Today's focus -->
+        <div style="background:#1e2028;border:1px solid #2a2d38;border-radius:6px;padding:8px 10px;">
+          <div style="font-size:9px;font-weight:600;color:#7c8394;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Today's Focus</div>
+          <div style="border-bottom:1px solid #2a2d38;padding:4px 0;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:9px;color:#f0f2f5;">Columbia Sportswear</span>
+            <span style="font-size:9px;color:#ef4444;font-weight:600;">28d</span>
+          </div>
+          <div style="border-bottom:1px solid #2a2d38;padding:4px 0;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:9px;color:#f0f2f5;">Gresham Auto Center</span>
+            <span style="font-size:9px;color:#ef4444;font-weight:600;">7d</span>
+          </div>
+          <div style="padding:4px 0;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:9px;color:#f0f2f5;">Albany Steel</span>
+            <span style="font-size:9px;color:#ef4444;font-weight:600;">4d</span>
+          </div>
+        </div>
+        <!-- Exec workload -->
+        <div style="background:#1e2028;border:1px solid #2a2d38;border-radius:6px;padding:8px 10px;">
+          <div style="font-size:9px;font-weight:600;color:#7c8394;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Exec Workload</div>
+          <div style="border-bottom:1px solid #2a2d38;padding:4px 0;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:9px;color:#f0f2f5;flex:1;">Jordan Reyes</span>
+            <span style="font-size:9px;color:#7c8394;width:16px;text-align:right;">38</span>
+            <div style="width:60px;height:4px;background:#2a2d38;border-radius:2px;overflow:hidden;"><div style="width:80%;height:100%;background:#f59e0b;border-radius:2px;"></div></div>
+          </div>
+          <div style="border-bottom:1px solid #2a2d38;padding:4px 0;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:9px;color:#f0f2f5;flex:1;">Morgan Stiles</span>
+            <span style="font-size:9px;color:#7c8394;width:16px;text-align:right;">33</span>
+            <div style="width:60px;height:4px;background:#2a2d38;border-radius:2px;overflow:hidden;"><div style="width:69%;height:100%;background:#f59e0b;border-radius:2px;"></div></div>
+          </div>
+          <div style="padding:4px 0;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:9px;color:#f0f2f5;flex:1;">Casey Nguyen</span>
+            <span style="font-size:9px;color:#7c8394;width:16px;text-align:right;">32</span>
+            <div style="width:60px;height:4px;background:#2a2d38;border-radius:2px;overflow:hidden;"><div style="width:67%;height:100%;background:#f59e0b;border-radius:2px;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Stats row, then two panels</h3>
+      <p>Stats span full width on top. Today's Focus and Exec Workload sit side by side below. Compact, everything visible at once.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Stats + exec left, today's focus right -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#16181d;padding:12px;font-family:system-ui,sans-serif;border-radius:6px;">
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:7px;">
+        <!-- Left: stats stacked + exec -->
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;">
+            <div style="background:#1e2028;border:1px solid #2a2d38;border-radius:6px;padding:8px;">
+              <div style="font-size:15px;font-weight:700;color:#f0f2f5;">89</div>
+              <div style="font-size:8px;color:#7c8394;">Due ≤ 30d</div>
+            </div>
+            <div style="background:#1e2028;border:1px solid #3d1f1a;border-left:2px solid #ef4444;border-radius:6px;padding:8px;">
+              <div style="font-size:15px;font-weight:700;color:#ef4444;">98</div>
+              <div style="font-size:8px;color:#7c8394;">Critical</div>
+            </div>
+          </div>
+          <div style="background:#1e2028;border:1px solid #2a2d38;border-radius:6px;padding:8px;">
+            <div style="font-size:8px;font-weight:600;color:#7c8394;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Exec Workload</div>
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <span style="font-size:8px;color:#f0f2f5;width:70px;">Jordan Reyes</span>
+              <span style="font-size:8px;color:#7c8394;width:14px;">38</span>
+              <div style="flex:1;height:4px;background:#2a2d38;border-radius:2px;overflow:hidden;"><div style="width:80%;height:100%;background:#f59e0b;border-radius:2px;"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <span style="font-size:8px;color:#f0f2f5;width:70px;">Morgan Stiles</span>
+              <span style="font-size:8px;color:#7c8394;width:14px;">33</span>
+              <div style="flex:1;height:4px;background:#2a2d38;border-radius:2px;overflow:hidden;"><div style="width:69%;height:100%;background:#f59e0b;border-radius:2px;"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8px;color:#f0f2f5;width:70px;">Casey Nguyen</span>
+              <span style="font-size:8px;color:#7c8394;width:14px;">32</span>
+              <div style="flex:1;height:4px;background:#2a2d38;border-radius:2px;overflow:hidden;"><div style="width:67%;height:100%;background:#f59e0b;border-radius:2px;"></div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: today's focus tall -->
+        <div style="background:#1e2028;border:1px solid #2a2d38;border-radius:6px;padding:8px 10px;">
+          <div style="font-size:9px;font-weight:600;color:#7c8394;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Today's Focus</div>
+          <div style="border-bottom:1px solid #2a2d38;padding:5px 0;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:9px;color:#f0f2f5;">Columbia Sportswear</span>
+            <div style="display:flex;gap:5px;align-items:center;">
+              <span style="font-size:8px;color:#7c8394;">BOP</span>
+              <span style="font-size:9px;color:#ef4444;font-weight:600;">28d</span>
+              <span style="font-size:8px;background:#3d1f1a;color:#ef4444;padding:1px 5px;border-radius:3px;">Critical</span>
+            </div>
+          </div>
+          <div style="border-bottom:1px solid #2a2d38;padding:5px 0;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:9px;color:#f0f2f5;">Gresham Auto Center</span>
+            <div style="display:flex;gap:5px;align-items:center;">
+              <span style="font-size:8px;color:#7c8394;">Package</span>
+              <span style="font-size:9px;color:#ef4444;font-weight:700;">7d</span>
+              <span style="font-size:8px;background:#3d1f1a;color:#ef4444;padding:1px 5px;border-radius:3px;">Critical</span>
+            </div>
+          </div>
+          <div style="border-bottom:1px solid #2a2d38;padding:5px 0;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:9px;color:#f0f2f5;">Albany Steel</span>
+            <div style="display:flex;gap:5px;align-items:center;">
+              <span style="font-size:8px;color:#7c8394;">WC</span>
+              <span style="font-size:9px;color:#ef4444;font-weight:700;">4d</span>
+              <span style="font-size:8px;background:#3d1f1a;color:#ef4444;padding:1px 5px;border-radius:3px;">Critical</span>
+            </div>
+          </div>
+          <div style="padding:5px 0;display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:9px;color:#f0f2f5;">Lake Oswego Medical</span>
+            <div style="display:flex;gap:5px;align-items:center;">
+              <span style="font-size:8px;color:#7c8394;">GL</span>
+              <span style="font-size:9px;color:#ef4444;font-weight:700;">2d</span>
+              <span style="font-size:8px;background:#3d1f1a;color:#ef4444;padding:1px 5px;border-radius:3px;">Critical</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Stats + exec left, focus right</h3>
+      <p>Asymmetric grid. Today's Focus gets more real estate since it's the primary action list. Stats and exec workload stack compactly on the left.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Single top bar stats, focus + exec full width below -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#16181d;padding:12px;font-family:system-ui,sans-serif;border-radius:6px;">
+      <!-- Inline stat bar -->
+      <div style="background:#1e2028;border:1px solid #2a2d38;border-radius:6px;padding:7px 12px;display:flex;gap:20px;align-items:center;margin-bottom:8px;">
+        <div style="display:flex;align-items:baseline;gap:5px;">
+          <span style="font-size:16px;font-weight:700;color:#f0f2f5;">89</span>
+          <span style="font-size:8px;color:#7c8394;">due ≤30d</span>
+        </div>
+        <div style="width:1px;height:16px;background:#2a2d38;"></div>
+        <div style="display:flex;align-items:baseline;gap:5px;">
+          <span style="font-size:16px;font-weight:700;color:#ef4444;">98</span>
+          <span style="font-size:8px;color:#7c8394;">critical</span>
+        </div>
+        <div style="width:1px;height:16px;background:#2a2d38;"></div>
+        <div style="display:flex;align-items:baseline;gap:5px;">
+          <span style="font-size:16px;font-weight:700;color:#f0f2f5;">13%</span>
+          <span style="font-size:8px;color:#7c8394;">contacted</span>
+        </div>
+        <div style="flex:1;"></div>
+        <span style="font-size:8px;color:#4b5060;">Updated just now</span>
+      </div>
+      <!-- Focus + exec side by side, wider -->
+      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:7px;">
+        <div style="background:#1e2028;border:1px solid #2a2d38;border-radius:6px;padding:8px 10px;">
+          <div style="font-size:9px;font-weight:600;color:#7c8394;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Today's Focus</div>
+          <div style="border-bottom:1px solid #2a2d38;padding:4px 0;display:flex;justify-content:space-between;">
+            <span style="font-size:9px;color:#f0f2f5;">Columbia Sportswear</span>
+            <span style="font-size:9px;color:#ef4444;font-weight:600;">28d · Critical</span>
+          </div>
+          <div style="border-bottom:1px solid #2a2d38;padding:4px 0;display:flex;justify-content:space-between;">
+            <span style="font-size:9px;color:#f0f2f5;">Gresham Auto Center</span>
+            <span style="font-size:9px;color:#ef4444;font-weight:700;">7d · Critical</span>
+          </div>
+          <div style="padding:4px 0;display:flex;justify-content:space-between;">
+            <span style="font-size:9px;color:#f0f2f5;">Albany Steel</span>
+            <span style="font-size:9px;color:#ef4444;font-weight:700;">4d · Critical</span>
+          </div>
+        </div>
+        <div style="background:#1e2028;border:1px solid #2a2d38;border-radius:6px;padding:8px 10px;">
+          <div style="font-size:9px;font-weight:600;color:#7c8394;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Exec Workload</div>
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;">
+            <span style="font-size:8px;color:#f0f2f5;flex:1;">Jordan Reyes</span>
+            <span style="font-size:8px;color:#7c8394;">38</span>
+            <div style="width:50px;height:4px;background:#2a2d38;border-radius:2px;overflow:hidden;"><div style="width:80%;height:100%;background:#f59e0b;border-radius:2px;"></div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:4px;">
+            <span style="font-size:8px;color:#f0f2f5;flex:1;">Morgan Stiles</span>
+            <span style="font-size:8px;color:#7c8394;">33</span>
+            <div style="width:50px;height:4px;background:#2a2d38;border-radius:2px;overflow:hidden;"><div style="width:69%;height:100%;background:#f59e0b;border-radius:2px;"></div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;">
+            <span style="font-size:8px;color:#f0f2f5;flex:1;">Casey Nguyen</span>
+            <span style="font-size:8px;color:#7c8394;">32</span>
+            <div style="width:50px;height:4px;background:#2a2d38;border-radius:2px;overflow:hidden;"><div style="width:67%;height:100%;background:#f59e0b;border-radius:2px;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Inline stat bar, wide panels below</h3>
+      <p>Stats collapse into a single horizontal bar (saves vertical space). Today's Focus and Exec Workload sit side by side at full width below it.</p>
+    </div>
+  </div>
+
+</div>

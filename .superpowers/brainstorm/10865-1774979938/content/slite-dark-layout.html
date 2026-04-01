@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renewal Hub — Command Center Layout</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #111214; color: #f0f2f5; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* Shell */
+  .shell { display: flex; flex: 1; overflow: hidden; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background: #111214;
+    border-right: 1px solid #1e2024;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .sidebar-top {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid #1e2024;
+  }
+  .brand { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .brand-mark {
+    width: 26px; height: 26px;
+    background: #f59e0b;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 800; color: #111214;
+    flex-shrink: 0;
+  }
+  .brand-name { font-size: 13px; font-weight: 700; color: #f0f2f5; letter-spacing: -0.2px; }
+
+  .search-bar {
+    background: #1e2028;
+    border: 1px solid #2a2d38;
+    border-radius: 6px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #4b5060;
+    cursor: pointer;
+  }
+  .search-bar:hover { border-color: #3a3e4a; }
+
+  .sidebar-nav { flex: 1; overflow-y: auto; padding: 10px 8px; }
+  .nav-section-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #4b5060;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 12px 8px 4px;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #7c8394;
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .nav-item:hover { background: #1e2028; color: #c0c8d8; }
+  .nav-item.active { background: #1e2028; color: #f0f2f5; font-weight: 500; }
+  .nav-item .icon { width: 14px; height: 14px; opacity: 0.6; font-size: 13px; flex-shrink: 0; }
+  .nav-item.active .icon { opacity: 1; }
+  .nav-badge {
+    margin-left: auto;
+    background: #3d1f1a;
+    color: #ef4444;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+  }
+
+  .sidebar-footer {
+    border-top: 1px solid #1e2024;
+    padding: 10px 8px;
+  }
+  .avatar-row {
+    display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; cursor: pointer;
+  }
+  .avatar-row:hover { background: #1e2028; }
+  .avatar { width: 24px; height: 24px; border-radius: 50%; background: #2a2d38; border: 1px solid #3a3e4a; flex-shrink: 0; }
+  .avatar-name { font-size: 12px; color: #7c8394; }
+
+  /* Main content */
+  .main { flex: 1; overflow-y: auto; background: #16181d; display: flex; flex-direction: column; }
+
+  .page-header {
+    padding: 28px 32px 0;
+  }
+  .page-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #f0f2f5;
+    letter-spacing: -0.6px;
+    margin-bottom: 20px;
+  }
+
+  /* Quick filter cards */
+  .quick-filters-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #4b5060;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .quick-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .qf-card {
+    background: #1e2028;
+    border: 1px solid #2a2d38;
+    border-radius: 8px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+    min-width: 160px;
+  }
+  .qf-card:hover { border-color: #3a3e4a; }
+  .qf-card.urgent { border-color: #3d1f1a; border-left: 2px solid #ef4444; }
+  .qf-card.urgent:hover { border-color: #ef4444; }
+  .qf-card.amber { border-color: #3d2f0a; border-left: 2px solid #f59e0b; }
+  .qf-count { font-size: 20px; font-weight: 800; color: #f0f2f5; line-height: 1; }
+  .qf-card.urgent .qf-count { color: #ef4444; }
+  .qf-card.amber .qf-count { color: #f59e0b; }
+  .qf-label { font-size: 12px; color: #7c8394; line-height: 1.3; }
+  .qf-icon { font-size: 14px; }
+
+  /* Filter row */
+  .filter-row {
+    padding: 0 32px 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .filter-search {
+    flex: 1;
+    background: #1e2028;
+    border: 1px solid #2a2d38;
+    border-radius: 6px;
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #4b5060;
+  }
+  .filter-select {
+    background: #1e2028;
+    border: 1px solid #2a2d38;
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 12px;
+    color: #7c8394;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .filter-select:hover { border-color: #3a3e4a; color: #c0c8d8; }
+  .filter-btn {
+    background: #1e2028;
+    border: 1px solid #2a2d38;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 12px;
+    color: #7c8394;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .filter-btn:hover { border-color: #3a3e4a; color: #c0c8d8; }
+
+  /* Table */
+  .table-wrap {
+    flex: 1;
+    padding: 0 32px 32px;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1e2028;
+    border: 1px solid #2a2d38;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .table thead tr {
+    background: #16181d;
+    border-bottom: 1px solid #2a2d38;
+  }
+  .table th {
+    padding: 9px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #4b5060;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    text-align: left;
+  }
+  .table th:last-child { text-align: right; }
+  .table tbody tr {
+    border-bottom: 1px solid #1e2028;
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .table tbody tr:hover { background: #22262f; }
+  .table tbody tr.row-critical { border-left: 2px solid #ef4444; background: #1c1a1a; }
+  .table tbody tr.row-critical:hover { background: #221c1c; }
+  .table td {
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #b0b8c8;
+  }
+  .td-client { color: #f0f2f5; font-weight: 500; }
+  .td-days-urgent { color: #ef4444; font-weight: 700; }
+  .td-days { color: #b0b8c8; }
+  .risk-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .risk-critical { background: #3d1f1a; color: #ef4444; }
+  .risk-high { background: #3d2f0a; color: #f59e0b; }
+  .risk-medium { background: #2d2a10; color: #eab308; }
+  .action-chip {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .action-overdue { background: #3d1f1a; color: #ef4444; }
+  .action-imminent { background: #3d2f0a; color: #f59e0b; }
+  .action-schedule { background: #1e2028; color: #7c8394; border: 1px solid #2a2d38; }
+  .td-right { text-align: right; }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-mark">R</div>
+        <span class="brand-name">Renewal Hub</span>
+      </div>
+      <div class="search-bar">
+        <span>⌕</span>
+        <span>Search...</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-item active">
+        <span class="icon">◈</span>
+        Dashboard
+        <span class="nav-badge">98</span>
+      </div>
+
+      <div class="nav-section-label">Policies</div>
+      <div class="nav-item">
+        <span class="icon">⚠</span>
+        Critical Risk
+        <span class="nav-badge">98</span>
+      </div>
+      <div class="nav-item">
+        <span class="icon">⏱</span>
+        Renewing Soon
+      </div>
+      <div class="nav-item">
+        <span class="icon">✉</span>
+        Needs Outreach
+      </div>
+      <div class="nav-item">
+        <span class="icon">☑</span>
+        All Policies
+      </div>
+
+      <div class="nav-section-label">Team</div>
+      <div class="nav-item">
+        <span class="icon">◎</span>
+        Jordan Reyes
+        <span style="margin-left:auto;font-size:10px;color:#7c8394;">38</span>
+      </div>
+      <div class="nav-item">
+        <span class="icon">◎</span>
+        Morgan Stiles
+        <span style="margin-left:auto;font-size:10px;color:#7c8394;">33</span>
+      </div>
+      <div class="nav-item">
+        <span class="icon">◎</span>
+        Casey Nguyen
+        <span style="margin-left:auto;font-size:10px;color:#7c8394;">32</span>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="avatar-row">
+        <div class="avatar"></div>
+        <span class="avatar-name">Account</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="page-header">
+      <h1 class="page-title">Dashboard</h1>
+
+      <div class="quick-filters-label">Quick filters ▾</div>
+      <div class="quick-filters">
+        <div class="qf-card urgent">
+          <div>
+            <div class="qf-count">98</div>
+            <div class="qf-label">Critical risk policies</div>
+          </div>
+        </div>
+        <div class="qf-card urgent">
+          <div>
+            <div class="qf-count">89</div>
+            <div class="qf-label">Renewing in ≤ 30 days</div>
+          </div>
+        </div>
+        <div class="qf-card amber">
+          <div>
+            <div class="qf-count">13%</div>
+            <div class="qf-label">Contacted in last 30d</div>
+          </div>
+        </div>
+        <div class="qf-card">
+          <div>
+            <div class="qf-count" style="color:#7c8394;">5</div>
+            <div class="qf-label">Today's focus</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter row -->
+    <div class="filter-row">
+      <div class="filter-search">
+        <span style="color:#4b5060;">⌕</span>
+        <span>Search client name…</span>
+      </div>
+      <div class="filter-select">All risk levels ▾</div>
+      <div class="filter-select">All policy types ▾</div>
+      <div class="filter-select">All account execs ▾</div>
+      <div class="filter-btn">≡ Filters ▾</div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Client</th>
+            <th>Type</th>
+            <th>Carrier</th>
+            <th>Premium</th>
+            <th>Renewal Date</th>
+            <th>Days Left</th>
+            <th>Risk</th>
+            <th class="td-right">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-critical">
+            <td class="td-client">Columbia Sportswear Retail</td>
+            <td>BOP</td>
+            <td>Philadelphia</td>
+            <td>$136,000</td>
+            <td>2026-04-28</td>
+            <td class="td-days-urgent">28d</td>
+            <td><span class="risk-badge risk-critical">Critical</span></td>
+            <td class="td-right"><span class="action-chip action-overdue">Overdue outreach</span></td>
+          </tr>
+          <tr class="row-critical">
+            <td class="td-client">Gresham Auto Center</td>
+            <td>Package</td>
+            <td>Philadelphia</td>
+            <td>$132,000</td>
+            <td>2026-04-07</td>
+            <td class="td-days-urgent">7d</td>
+            <td><span class="risk-badge risk-critical">Critical</span></td>
+            <td class="td-right"><span class="action-chip action-imminent">Renewal imminent</span></td>
+          </tr>
+          <tr class="row-critical">
+            <td class="td-client">Albany Steel Fabricators</td>
+            <td>WC</td>
+            <td>Great American</td>
+            <td>$100,000</td>
+            <td>2026-04-05</td>
+            <td class="td-days-urgent">4d</td>
+            <td><span class="risk-badge risk-critical">Critical</span></td>
+            <td class="td-right"><span class="action-chip action-imminent">Renewal imminent</span></td>
+          </tr>
+          <tr>
+            <td class="td-client">Lake Oswego Medical</td>
+            <td>GL</td>
+            <td>Hanover</td>
+            <td>$39,000</td>
+            <td>2026-04-03</td>
+            <td class="td-days">18d</td>
+            <td><span class="risk-badge risk-high">High</span></td>
+            <td class="td-right"><span class="action-chip action-schedule">Schedule call</span></td>
+          </tr>
+          <tr>
+            <td class="td-client">Canby Flower Growers</td>
+            <td>BOP</td>
+            <td>Philadelphia</td>
+            <td>$176,000</td>
+            <td>2026-04-07</td>
+            <td class="td-days">22d</td>
+            <td><span class="risk-badge risk-medium">Medium</span></td>
+            <td class="td-right"><span class="action-chip action-schedule">Schedule call</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

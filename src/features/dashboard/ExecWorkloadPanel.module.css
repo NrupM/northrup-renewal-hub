@@ -1,15 +1,31 @@
 .panel {
-  background: var(--surface);
+  background: var(--surface-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
+  min-width: 260px;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(12, 186, 186, 0.4), transparent);
 }
 
 .heading {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--text-muted);
   margin: 0 0 var(--spacing-md) 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .table {
@@ -19,11 +35,12 @@
 
 .th {
   text-align: left;
-  font-size: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.625rem;
   font-weight: 600;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   padding: 0 0 var(--spacing-sm) 0;
   border-bottom: 1px solid var(--border);
 }
@@ -37,31 +54,35 @@
 .td,
 .tdCount,
 .tdBar {
-  padding: var(--spacing-sm) 0;
-  font-size: 0.875rem;
+  padding: 10px 0;
+  font-size: 0.8125rem;
   color: var(--text-secondary);
 }
 
 .tdCount {
-  width: 48px;
-  font-weight: 600;
-  color: var(--text-primary);
+  width: 40px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--amber);
+  text-align: right;
+  padding-right: var(--spacing-sm);
 }
 
 .tdBar {
-  width: 120px;
+  width: 100px;
 }
 
 .barTrack {
-  background: var(--surface-subtle);
-  border-radius: var(--radius-sm);
-  height: 8px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 2px;
+  height: 4px;
   overflow: hidden;
 }
 
 .barFill {
-  background: var(--risk-high);
+  background: linear-gradient(90deg, var(--teal), var(--cyan));
   height: 100%;
-  border-radius: var(--radius-sm);
-  transition: width 0.3s ease;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 8px rgba(1, 186, 239, 0.4);
 }

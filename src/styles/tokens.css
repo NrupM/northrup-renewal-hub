@@ -1,24 +1,59 @@
 /* src/styles/tokens.css */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
 :root {
-  --risk-critical: #dc2626;
-  --risk-high: #ea580c;
-  --risk-medium: #ca8a04;
-  --risk-low: #16a34a;
+  /* Brand palette */
+  --navy:      #05061B;
+  --navy-mid:  #0c0e2e;
+  --navy-light:#141640;
+  --cyan:      #01BAEF;
+  --teal:      #0CBABA;
+  --amber:     #F6AE2D;
+  --crimson:   #A63D40;
 
-  --surface: #ffffff;
-  --surface-subtle: #f9fafb;
-  --surface-hover: #f3f4f6;
-  --border: #e5e7eb;
+  /* Risk levels — mapped to brand palette */
+  --risk-critical: #A63D40;
+  --risk-high:     #F6AE2D;
+  --risk-medium:   #0CBABA;
+  --risk-low:      #16a34a;
 
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-muted: #6b7280;
+  /* Surfaces */
+  --surface:        #0c0e2e;
+  --surface-subtle: #05061B;
+  --surface-hover:  #141640;
+  --surface-card:   #101230;
+  --surface-raised: #181a3e;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
+  /* Borders */
+  --border:         rgba(1, 186, 239, 0.12);
+  --border-bright:  rgba(1, 186, 239, 0.28);
+
+  /* Text */
+  --text-primary:   #e8f4ff;
+  --text-secondary: #a0b8d0;
+  --text-muted:     #526478;
+
+  /* Accent glow */
+  --glow-cyan:   0 0 16px rgba(1, 186, 239, 0.25);
+  --glow-amber:  0 0 16px rgba(246, 174, 45, 0.3);
+  --glow-crimson:0 0 16px rgba(166, 61, 64, 0.4);
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  /* Spacing */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Sidebar */
+  --sidebar-width: 220px;
 }
